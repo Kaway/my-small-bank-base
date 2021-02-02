@@ -1,0 +1,231 @@
+{
+	"info": {
+		"_postman_id": "bc0d8717-d86a-4238-9856-7c6f20d3b8ae",
+		"name": "MySmallBank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "account",
+			"item": [
+				{
+					"name": "Create account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"holder\": {\n        \"id\": \"92e2fe3a-d755-4f89-ba7a-db82350b34d8\"\n    },\n    \"type\": \"PEL\",\n    \"balance\": 350\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/accounts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create accounts batch",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"holder\": {\n            \"id\": \"38aeaf16-25a6-4d49-9f19-73d15c6e7761\"\n        },\n        \"type\": \"TRANSACTION\",\n        \"balance\": 100\n    },\n    {\n        \"holder\": {\n            \"id\": \"38aeaf16-25a6-4d49-9f19-73d15c6e7761\"\n        },\n        \"type\": \"SAVINGS\",\n        \"balance\": 1000\n    },\n    {\n        \"holder\": {\n            \"id\": \"38aeaf16-25a6-4d49-9f19-73d15c6e7761\"\n        },\n        \"type\": \"PEL\",\n        \"balance\": 8888\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/accounts/batch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounts",
+								"batch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Accounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/accounts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one account",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/accounts/12e61975-3220-4dbd-a032-e73ef93f2765",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"accounts",
+								"12e61975-3220-4dbd-a032-e73ef93f2765"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "transfers",
+			"item": [
+				{
+					"name": "Create a transfer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"from\": \"5bbe178f-5309-4e82-8036-8c5e50f9b533\",\n    \"to\": \"83eddbff-b8f1-409d-b87c-93a76089ad33\",\n    \"amount\": 250\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/transfers",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"transfers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "holder",
+			"item": [
+				{
+					"name": "Get all holders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/holders",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"holders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one holder",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/holders/59e7a3bb-c3c6-4c24-99b9-f0abe668f03d",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"holders",
+								"59e7a3bb-c3c6-4c24-99b9-f0abe668f03d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create holder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Jean\",\n    \"lastName\": \"MOULIN\",\n    \"birthDate\": \"1999-10-08\",\n    \"address\" : {\n        \"street\" : \"40 avenue de la nouvelle France\",\n        \"zipCode\": \"93110\",\n        \"city\": \"Montreuil\",\n        \"country\": \"FRANCE\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/holders",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"holders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080"
+		}
+	]
+}
